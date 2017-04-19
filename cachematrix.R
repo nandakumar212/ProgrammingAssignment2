@@ -1,6 +1,10 @@
-## R Script to cache matrix inverses
+## R Script to cache matrix inverses to improve performance
 
-## Function with getter and setters for matrix and its inverse  
+## Function that accepts a matrix as its argument and returns a list of functions that perform the following
+## 1. set the value of the matrix
+## 2. get the value of the matrix
+## 3. set the value of the matrix inverse
+## 4. get the value of the matrix inverse
 
 makeCacheMatrix <- function(x = matrix()) {
         inv <- NULL
@@ -17,7 +21,9 @@ makeCacheMatrix <- function(x = matrix()) {
 }
 
 
-## Function that checks if a matrix is cached and returns its inverse accordingly
+## Function accepts a matrix as its argument and computes its inverse.
+## If the inverse has already been computed it returns the cached result
+## otherwise it calculates the inverse of the matrix using solve() function and caches it for future use
 
 cacheSolve <- function(x, ...) {
         inv <- x$getinverse()
